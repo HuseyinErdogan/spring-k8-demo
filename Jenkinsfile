@@ -14,9 +14,9 @@ pipeline {
             agent any
             steps{
                 script{
-                    docker.build("huserd/spring-k8-demo:2.0")
-//                     sh 'docker --version'
-//                     sh 'docker build -t huserd/spring-k8-demo:2.0 .'
+//                     docker.build("huserd/spring-k8-demo:2.0")
+                    sh 'docker --version'
+                    sh 'docker build -t huserd/spring-k8-demo:2.0 .'
                 }
 
             }
