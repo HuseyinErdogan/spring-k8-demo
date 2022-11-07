@@ -24,10 +24,9 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                 script{
-                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+//                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
                    sh 'docker login -u huserd -p Erdh1414'
-
-}
+//                    }
                    sh 'docker push huserd/spring-k8-demo:2.0'
                 }
             }
