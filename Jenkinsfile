@@ -8,6 +8,8 @@ pipeline {
             steps{
 //                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Java-Techie-jt/devops-automation']]])
                 sh 'mvn clean install'
+                sh 'ls '
+                sh 'ls target/'
             }
         }
         stage('Build docker image'){
