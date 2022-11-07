@@ -8,14 +8,13 @@ pipeline {
             steps{
 //                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Java-Techie-jt/devops-automation']]])
                 sh 'mvn clean install'
-                sh 'ls '
-                sh 'ls target/'
             }
         }
         stage('Build docker image'){
-            agent any
             steps{
                 script{
+                    sh 'ls '
+                    sh 'ls target/'
                     sh 'docker --version'
                     sh 'docker build -t huserd/spring-k8-demo:2.0 .'
                 }
