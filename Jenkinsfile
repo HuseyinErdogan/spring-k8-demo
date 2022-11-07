@@ -4,17 +4,16 @@ pipeline {
         maven '3.6.3'
     }
     stages{
-//         stage('Build Maven'){
-//             steps{
-// //                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Java-Techie-jt/devops-automation']]])
-//                 sh 'mvn clean install'
-//             }
-//         }
+        stage('Build Maven'){
+            steps{
+//                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Java-Techie-jt/devops-automation']]])
+                sh 'mvn clean install'
+            }
+        }
         stage('Build docker image'){
             agent any
             steps{
                 script{
-//                     docker.build("huserd/spring-k8-demo:2.0")
                     sh 'docker --version'
                     sh 'docker build -t huserd/spring-k8-demo:2.0 .'
                 }
