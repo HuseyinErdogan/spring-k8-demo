@@ -14,6 +14,7 @@ pipeline {
             steps{
                 script{
                     sh 'docker build -t huserd/spring-k8-demo:2.0 .'
+                    sh 'docker build -t huserd/spring-k8-demo:2.0 .'
                 }
             }
         }
