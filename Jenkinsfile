@@ -31,6 +31,7 @@ pipeline {
 //                 }
 //             }
 //         }
+node{
         stage('Deploy to k8s'){
             steps{
             withKubeConfig(caCertificate: '''-----BEGIN CERTIFICATE-----
@@ -53,7 +54,7 @@ pipeline {
             6Pf56nItFvvMhg==
             -----END CERTIFICATE-----''', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'a506f8b0-40b1-4118-996c-7ada387419db', namespace: 'default', serverUrl: 'https://192.168.49.2:8443') {
                 sh 'kubectl apply -f deploymentservice.yaml'
-            }
+            } }
 //                 script{
 //                 kubeconfig(caCertificate: '''-----BEGIN CERTIFICATE-----
 //                 MIIDBjCCAe6gAwIBAgIBATANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwptaW5p
