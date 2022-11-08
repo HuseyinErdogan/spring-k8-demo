@@ -51,7 +51,7 @@ pipeline {
             bco9aEqWpPHGCk51mxX2GGxwFvix/TIsDL3Yw6lzBHrRb4AVyDXYdjfNjNHT1xji
             Wof05iOZ/k4vgftlCYl1shF/GbMop0G3dkXZbwMwF5sV1d2Rs7ru9vC+Ji67f3BY
             6Pf56nItFvvMhg==
-            -----END CERTIFICATE-----''', clusterName: 'minikube', contextName: 'minikube', credentialsId: '', namespace: 'default', serverUrl: 'https://192.168.49.2:8443') {
+            -----END CERTIFICATE-----''', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'a506f8b0-40b1-4118-996c-7ada387419db', namespace: 'default', serverUrl: 'https://192.168.49.2:8443') {
                 sh 'kubectl apply -f deploymentservice.yaml'
             }
 //                 script{
