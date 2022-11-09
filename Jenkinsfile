@@ -13,11 +13,7 @@ pipeline {
         }
         stage('Build docker image'){
             steps{
-                script{
-                def build = buildImage()
-                build.withTag("test:123")
-                build.build()
-                }
+                buildImage()
             }
         }
 //         stage('Build Maven'){
