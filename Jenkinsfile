@@ -11,6 +11,15 @@ pipeline {
                 helloWorld(name: "Hüseyin", dayOfWeek: "wednesday")
             }
         }
+        stage('Build Maven'){
+            steps{
+                script{
+                def build = buildImage()
+                build.withTag("test:123")
+                build.build()
+                }
+            }
+        }
 //         stage('Build Maven'){
 //             steps{
 // //                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Java-Techie-jt/devops-automation']]])
