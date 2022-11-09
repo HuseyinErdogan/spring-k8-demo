@@ -11,7 +11,7 @@ pipeline {
                 helloWorld(name: "Hüseyin", dayOfWeek: "wednesday")
             }
         }
-        stage('Build Maven'){
+        stage('Build docker image'){
             steps{
                 script{
                 def build = buildImage()
