@@ -7,7 +7,7 @@ pipeline {
                 script{
                     echo 'Building.. dev'
                     sh 'ls -la'
-                    sh 'cat etc/hosts'
+                    sh 'cat /etc/hosts'
                     final String url = "https://gitlab.rally.softtech/api/v4/projects/1275/repository/files/README.md/raw?ref=master"
 
                     final String token = "VaXs43y1LYjc69yn-MGN"
