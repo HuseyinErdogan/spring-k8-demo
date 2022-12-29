@@ -5,6 +5,7 @@ pipeline {
         stage('Get Readme File') {
             steps {
                 script{
+                    sh 'curl --version'
                     echo 'Building.. dev'
                     sh 'ls -la'
                     sh 'cat /etc/hosts'
