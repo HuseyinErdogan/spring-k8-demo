@@ -12,7 +12,7 @@ pipeline {
 
                     final String token = "VaXs43y1LYjc69yn-MGN"
 
-                    final String response = sh(script: "curl --location --insecure --request GET \\'$url\\' --header \\'PRIVATE-TOKEN: $token\\'", returnStdout: true).trim()
+                    final String response = sh(script: "curl --location --insecure --header \\'PRIVATE-TOKEN: $token\\' --request GET \\'$url\\'", returnStdout: true).trim()
 
                     echo response
                 }
