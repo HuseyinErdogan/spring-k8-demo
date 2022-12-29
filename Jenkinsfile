@@ -2,6 +2,18 @@ pipeline {
     agent any
 
     stages {
+        stage('Get Readme File 1') {
+            steps {
+                script{
+                    def cmd = "curl --location --insecure --request GET 'https://gitlab.rally.softtech/api/v4/projects/1275/repository/files/README.md/raw?ref=master' --header 'PRIVATE-TOKEN: VaXs43y1LYjc69yn-MGN'"
+                    def process = command.execute() 
+                    def sOut = new StringBuilder()
+                    def sErr = new StringBuilder()
+                    process.consumeProcessOutput(sOut,sErr)
+                    process.waitForOrKill(60000) //milliseconds... timeout
+                }
+            }
+        }
         stage('Get Readme File') {
             steps {
                 script{
@@ -30,9 +42,6 @@ pipeline {
         }
     }
 }
-
-
-
 
 
 
