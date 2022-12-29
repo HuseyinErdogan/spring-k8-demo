@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building.. dev'
-                sh ls 
+                sh 'ls -la'
             }
         }
         stage('Test') {
