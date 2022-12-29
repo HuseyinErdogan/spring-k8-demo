@@ -4,16 +4,18 @@ pipeline {
     stages {
         stage('Get Readme File') {
             steps {
-                echo 'Building.. dev'
-                sh 'ls -la'
+                script{
+                    echo 'Building.. dev'
+                    sh 'ls -la'
 
-                String url = "https://gitlab.rally.softtech/api/v4/projects/1275/repository/files/README.md/raw?ref=master"
+                    final String url = "https://gitlab.rally.softtech/api/v4/projects/1275/repository/files/README.md/raw?ref=master"
 
-                String token = "VaXs43y1LYjc69yn-MGN"
+                    final String token = "VaXs43y1LYjc69yn-MGN"
 
-                String response = sh(script: "curl ---location --request --insecure GET $url --header 'PRIVATE-TOKEN: $token'", returnStdout: true).trim()
+                    final String response = sh(script: "curl ---location --request --insecure GET $url --header 'PRIVATE-TOKEN: $token'", returnStdout: true).trim()
 
-                echo response
+                    echo response
+                }
             }
         }
         stage('Test') {
