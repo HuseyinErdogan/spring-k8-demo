@@ -7,11 +7,11 @@ pipeline {
                 echo 'Building.. dev'
                 sh 'ls -la'
 
-                final String url = "https://gitlab.rally.softtech/api/v4/projects/1275/repository/files/README.md/raw?ref=master"
+                String url = "https://gitlab.rally.softtech/api/v4/projects/1275/repository/files/README.md/raw?ref=master"
 
-                final String token = "VaXs43y1LYjc69yn-MGN"
+                String token = "VaXs43y1LYjc69yn-MGN"
 
-                final String response = sh(script: "curl ---location --request --insecure GET $url --header 'PRIVATE-TOKEN: $token'", returnStdout: true).trim()
+                String response = sh(script: "curl ---location --request --insecure GET $url --header 'PRIVATE-TOKEN: $token'", returnStdout: true).trim()
 
                 echo response
             }
