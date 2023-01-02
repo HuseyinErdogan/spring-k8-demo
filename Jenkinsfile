@@ -7,6 +7,7 @@ pipeline {
             script {
                 sh "ls"
                 cloneRepository("test", "test", "test")
+                getProjectInfo("test")
                 }
             }
         }
