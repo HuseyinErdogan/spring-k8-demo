@@ -5,6 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
             script {
+                sh "ls"
                 cloneRepository("test", "test", "test")
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/HuseyinErdogan/spring-k8-demo.git'
                 sh "ls -lart ./*"
