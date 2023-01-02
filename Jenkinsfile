@@ -5,26 +5,11 @@ pipeline {
         stage('Checkout') {
             steps {
             script {
-                cloneRepository("test", "test")
-                sh "git --version"
-
-                echo "tesetttttttttttttt"
-                // The below will clone your repo and will be checked out to master branch by default.
+                cloneRepository("test", "test", "test")
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/HuseyinErdogan/spring-k8-demo.git'
-
-                echo 'Testing.. 1'
-                // Do a ls -lart to view all the files are cloned. It will be clonned. This is just for you to be sure about it.
                 sh "ls -lart ./*"
-
-                echo 'Testing.. 2'
-                // List all branches in your repo.
-                sh "git branch -a"
-
-                echo 'Testing.. 3'
-                // Checkout to a specific branch in your repo.
                 sh "git checkout dev"
-
-                echo 'Testing.. 4'
+                sh "ls"
                 }
             }
         }
@@ -40,7 +25,7 @@ pipeline {
         }
     }
 }
-void cloneRepository(String url, String branch) {
+void cloneRepository(String url, String branch, String credentialsId) {
     echo "CLONE REPOSITORY"
 }
 
