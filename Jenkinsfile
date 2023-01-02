@@ -5,6 +5,8 @@ pipeline {
         stage('Checkout') {
             steps {
             script {
+                
+                sh "git --version"
                 // The below will clone your repo and will be checked out to master branch by default.
                 git url: 'https://github.com/HuseyinErdogan/spring-k8-demo.git'
 
