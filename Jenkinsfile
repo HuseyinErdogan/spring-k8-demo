@@ -10,7 +10,8 @@ pipeline {
                 sh "ls"
 //                 cloneRepository("https://github.com/HuseyinErdogan/Mentorship-Application.git", "master", "github", "Mentorship-Application")
 //                 cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
-                getProjectInfo("test")
+                def project = getProjectById("422")
+                println("Project Name: ${project.project_name}")
                 }
             }
         }
@@ -33,7 +34,7 @@ void cloneRepository(String url, String branch, String credentialsId, String pro
     sh "cp -r $projectSlug/docs test/"
     sh "ls -lart ./*"
 }
-def getProjectInfo(String projectId) {
+def getProjectById(String projectId) {
     echo "GET PROJECT INFO"
     def projectList = readJSON file: 'project-map.json'
     echo "READ JSON"
@@ -41,10 +42,9 @@ def getProjectInfo(String projectId) {
     for(i=0; i<projectList['projects'].size(); i++)  {
         def project = projectList['projects'][i]
         println("Processing artifact: $project")
-        println(project.project_id)
-
-//         def providerArtifacts = artifact['providers']
-//         def themeArtifacts = artifact['basetheme']
-//         def spiArtifacts = artifact['spis']
+        if(project.project_id==projectId){
+            return project
+        }
    }
+   return null;
 }
