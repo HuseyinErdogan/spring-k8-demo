@@ -26,7 +26,8 @@ pipeline {
 }
 void cloneRepository(String url, String branch, String credentialsId) {
     echo "CLONE REPOSITORY $url"
-    git url: url, branch: branch, credentialsId: credentialsId
+//     git url: url, branch: branch, credentialsId: credentialsId
+    sh "git clone --branch $branch $url"
     sh "ls -lart ./*"
     sh "ls"
 //     sh "cp Mentorship-Application/README.md test/*"
