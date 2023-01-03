@@ -8,10 +8,11 @@ pipeline {
 //                 sh "rm -rf Mentorship-Application"
 //                 sh "rm -rf Demo"
                 sh "ls"
-//                 cloneRepository("https://github.com/HuseyinErdogan/Mentorship-Application.git", "master", "github", "Mentorship-Application")
-//                 cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
-                def project = getProjectById("422")
+                def project = getProjectById("123")
                 println("Project Name: ${project.project_name}")
+                cloneRepository(project)
+//                 cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
+
                 }
             }
         }
@@ -27,11 +28,11 @@ pipeline {
         }
     }
 }
-void cloneRepository(String url, String branch, String credentialsId, String projectSlug) {
-    echo "CLONE REPOSITORY $url"
-    sh "git clone --branch $branch $url"
-    sh "cp $projectSlug/README.md test/"
-    sh "cp -r $projectSlug/docs test/"
+void cloneRepository(def project) {
+    echo "CLONE REPOSITORY ${project.project_url}"
+    sh "git clone --branch ${project.branch} ${project.project_url}"
+    sh "cp ${project.project_slug}/README.md test/"
+    sh "cp -r ${project.project_slug}/docs test/"
     sh "ls -lart ./*"
 }
 def getProjectById(String projectId) {
