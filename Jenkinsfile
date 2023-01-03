@@ -6,7 +6,7 @@ pipeline {
             steps {
             script {
                 sh "ls"
-                cloneRepository("test", "test", "test")
+                cloneRepository("https://github.com/HuseyinErdogan/Mentorship-Application.git", "master", "github")
                 getProjectInfo("test")
                 }
             }
@@ -25,8 +25,8 @@ pipeline {
 }
 void cloneRepository(String url, String branch, String credentialsId) {
     echo "CLONE REPOSITORY"
-    git branch: 'master', credentialsId: 'github', url: 'https://github.com/HuseyinErdogan/Mentorship-Application.git'
-    sh "git clone https://github.com/HuseyinErdogan/Mentorship-Application.git"
+    git url: url, branch: branch, credentialsId: credentialsId
+    sh "cp /Mentorship-Application/README.md test/*"
     sh "ls -lart ./*"
     sh "ls"
 }
