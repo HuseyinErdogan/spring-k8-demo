@@ -26,7 +26,7 @@ pipeline {
         }
     }
 }
-void cloneRepository(String url, String branch, String credentialsId, def project) {
+void cloneRepository(String url, String branch, String credentialsId) {
     echo "CLONE REPOSITORY $url"
     sh "git clone --branch $branch $url"
     sh "cp $projectSlug/README.md test/"
