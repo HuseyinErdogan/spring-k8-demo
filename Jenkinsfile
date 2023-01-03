@@ -9,7 +9,7 @@ pipeline {
 //                 sh "rm -rf Demo"
                 sh "ls"
                 def project = getProjectById("123")
-                println("Project Name: ${project.project_name}")
+                println("Project Name: ${project.name}")
                 cloneRepository(project)
 //                 cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
 
@@ -29,10 +29,10 @@ pipeline {
     }
 }
 void cloneRepository(def project) {
-    echo "CLONE REPOSITORY ${project.project_url}"
-    sh "git clone --branch ${project.branch} ${project.project_url}"
-    sh "cp ${project.project_slug}/README.md test/"
-    sh "cp -r ${project.project_slug}/docs test/"
+    echo "CLONE REPOSITORY ${project.url}"
+    sh "git clone --branch ${project.branch} ${project.url}"
+    sh "cp ${project.slug}/README.md test/"
+    sh "cp -r ${project.slug}/docs test/"
     sh "ls -lart ./*"
 }
 def getProjectById(String projectId) {
@@ -43,7 +43,7 @@ def getProjectById(String projectId) {
     for(i=0; i<projectList['projects'].size(); i++)  {
         def project = projectList['projects'][i]
         println("Processing artifact: $project")
-        if(project.project_id==projectId){
+        if(project.id==projectId){
             return project
         }
    }
