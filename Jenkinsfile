@@ -30,7 +30,7 @@ pipeline {
     }
 }
 void addDocuments(def project) {
-    sh "git checkout -f -b my-new-branc"
+    sh "git checkout -f -b my-new-branc2"
 
     println("cloning ${project.url} repository")
     sh "git clone --branch ${project.branch} ${project.url}"
@@ -49,7 +49,7 @@ void addDocuments(def project) {
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
 
-    sh "git checkout -f -b my-new-branc"
+    sh "git checkout -f -b my-new-branc2"
     sh "git add . "
     sh 'git commit -m \\"My commit message\\"'
     sh 'git status'
