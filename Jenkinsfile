@@ -35,7 +35,7 @@ void cloneRepository(String url, String branch, String credentialsId) {
     sh "cp Mentorship-Application/README.md test/"
     sh "cp -r Mentorship-Application/docs test/"
 
-    sh "ls Mentorship-Application/"
+    sh "ls -lart ./*"
 }
 def getProjectInfo(String projectId) {
     echo "GET PROJECT INFO"
