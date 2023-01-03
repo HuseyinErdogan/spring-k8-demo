@@ -65,7 +65,7 @@ def getProjectById(String projectId) {
 void createMergeRequest(){
     sh "git checkout -b my-new-branch"
     sh "git add . "
-    sh "git commit -m 'My commit message'"
+    sh "git commit -m \\'My commit message\\'"
     sh "git push origin my-new-branch"
 
 }
