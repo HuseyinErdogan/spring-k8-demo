@@ -25,10 +25,10 @@ pipeline {
 }
 void cloneRepository(String url, String branch, String credentialsId) {
     echo "CLONE REPOSITORY"
-    git url: url, branch: branch, credentialsId: credentialsId
+//     git url: url, branch: branch, credentialsId: credentialsId
     sh "ls -lart ./*"
     sh "ls"
-    sh "cp Mentorship-Application/README.md test/*"
+//     sh "cp Mentorship-Application/README.md test/*"
 }
 def getProjectInfo(String projectId) {
     echo "GET PROJECT INFO"
