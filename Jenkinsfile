@@ -8,8 +8,8 @@ pipeline {
                 sh "rm -rf Mentorship-Application"
                 sh "rm -rf Demo"
                 sh "ls"
-                cloneRepository("https://github.com/HuseyinErdogan/Mentorship-Application.git", "master", "github")
-                cloneRepository("https://github.com/kedark3/Demo.git", "master", "github")
+                cloneRepository("https://github.com/HuseyinErdogan/Mentorship-Application.git", "master", "github", "Mentorship-Application")
+                cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
                 getProjectInfo("test")
                 }
             }
@@ -26,7 +26,7 @@ pipeline {
         }
     }
 }
-void cloneRepository(String url, String branch, String credentialsId) {
+void cloneRepository(String url, String branch, String credentialsId, String projectSlug) {
     echo "CLONE REPOSITORY $url"
     sh "git clone --branch $branch $url"
     sh "cp $projectSlug/README.md test/"
