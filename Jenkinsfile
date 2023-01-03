@@ -10,7 +10,7 @@ pipeline {
                 sh "ls"
                 def project = getProjectById("123")
                 println("Project Name: ${project.name}")
-                cloneRepository(project)
+                addDocuments(project)
 //                 cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
 
                 }
