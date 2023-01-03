@@ -10,7 +10,7 @@ pipeline {
                 sh "ls"
                 def project = getProjectById("123")
                 println("Project Name: ${project.name}")
-                createMergeRequest();
+//                 createMergeRequest();
 //                 addDocuments(project)
 //                 cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
 
@@ -34,6 +34,7 @@ void addDocuments(def project) {
     sh "git clone --branch ${project.branch} ${project.url}"
 
     println("creating directory ${project.destination_path}/${project.slug}")
+    sh "mkdir -p ${project.destination_path}/${project.slug}"
     sh "mkdir -p ${project.destination_path}/${project.slug}"
 
     sh "cp ${project.slug}/README.md ${project.destination_path}/${project.slug}/"
