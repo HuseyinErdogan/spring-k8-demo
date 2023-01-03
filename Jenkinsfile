@@ -44,6 +44,8 @@ void addDocuments(def project) {
 
     sh "ls ${project.destination_path}/${project.slug}/"
 
+    sh "ls ${project.destination_path}/${project.slug}"
+
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
 
