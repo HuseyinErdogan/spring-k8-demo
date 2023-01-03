@@ -1,4 +1,4 @@
-import java.time.LocalDateTime
+import java.text.SimpleDateFormat
 
 pipeline {
     agent any
@@ -7,8 +7,10 @@ pipeline {
         stage('Checkout') {
             steps {
             script {
-                def dt = LocalDateTime.now()
-                println dt
+                def dateFormat = new SimpleDateFormat("yyyyMMddHHmmss")
+                def date = new Date()
+                def timestamp = dateFormat.format(date)
+                println timestamp
                 sh "ls"
                 def project = getProjectById("123")
                 println("Project Name: ${project.name}")
