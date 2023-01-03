@@ -44,8 +44,6 @@ void addDocuments(def project) {
 
     sh "ls ${project.destination_path}/${project.slug}/"
 
-    sh "ls ${project.destination_path}/${project.slug}"
-
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
 
@@ -60,6 +58,9 @@ def getProjectById(String projectId) {
         def project = projectList['projects'][i]
 //         println("Processing artifact: $project")
         if(project.id==projectId){
+            projectList['projects'][i]["version"]="132"
+            writeJSON file: 'project-map.json', json: projectList
+            sh "cat project-map.json"
             return project
         }
    }

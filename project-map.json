@@ -6,14 +6,16 @@
       "slug": "Mentorship-Application",
       "url": "https://github.com/HuseyinErdogan/Mentorship-Application.git",
       "branch": "master",
-      "destination_path": "plateau-iam/providers"
+      "destination_path": "plateau-iam/providers",
+      "version": ""
     },
     {
       "id": "422",
       "name": "Plateau IAM - Identity Provider",
       "slug": "identity-provider",
       "url": "https://gitlab.rally.softtech/plateau-security/identity-provider",
-      "branch": "base"
+      "branch": "base",
+      "version": ""
     },
     {
       "id": "857",
@@ -21,7 +23,8 @@
       "slug": "iamusers",
       "url": "https://gitlab.rally.softtech/plateau-security/proxy-plateau-service/iamusers",
       "group": "proxy-plateau-service",
-      "branch": "master"
+      "branch": "master",
+      "version": ""
     },
     {
       "id": "850",
@@ -29,7 +32,8 @@
       "slug": "iamauthorization",
       "url": "https://gitlab.rally.softtech/plateau-security/proxy-plateau-service/amauthorization",
       "group": "proxy-plateau-service",
-      "branch": "master"
+      "branch": "master",
+      "version": ""
     },
     {
       "id": "1355",
@@ -37,7 +41,8 @@
       "slug": "iam-user-queries-spi",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/iam-user-queries-spi",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "version": ""
     },
     {
       "id": "1336",
