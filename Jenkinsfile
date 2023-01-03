@@ -6,7 +6,7 @@ pipeline {
             steps {
             script {
                 sh "rm -rf Mentorship-Application"
-//                 sh "rm -rf Demo"
+                sh "rm -rf Demo"
                 sh "ls"
                 def project = getProjectById("123")
                 println("Project Name: ${project.name}")
