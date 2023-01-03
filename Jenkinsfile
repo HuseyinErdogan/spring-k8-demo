@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
             script {
-//                 sh "rm -rf Mentorship-Application"
+                sh "rm -rf Mentorship-Application"
 //                 sh "rm -rf Demo"
                 sh "ls"
                 def project = getProjectById("123")
