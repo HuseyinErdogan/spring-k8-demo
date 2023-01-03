@@ -36,6 +36,7 @@ void cloneRepository(String url, String branch, String credentialsId) {
 def getProjectInfo(String projectId) {
     echo "GET PROJECT INFO"
     def projectList = readJSON file: 'project-map.json'
+    echo "READ JSON"
 
     for(i=0; i<projectList['projects'].size(); i++)  {
         def project = projectList['projects'][i]
