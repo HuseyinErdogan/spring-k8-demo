@@ -7,10 +7,6 @@ pipeline {
         stage('Checkout') {
             steps {
             script {
-                def dateFormat = new SimpleDateFormat("yyyy.MM.dd-HH:mm:ss")
-                def date = new Date()
-                def timestamp = dateFormat.format(date)
-                println timestamp
                 sh "ls"
                 def project = getProjectById("123")
                 println("Project Name: ${project.name}")
@@ -34,7 +30,13 @@ pipeline {
     }
 }
 void addDocuments(def project) {
-    sh "git checkout -f -b my-new-branc3"
+    def dateFormat = new SimpleDateFormat("yyyy.MM.dd-HH:mm:ss")
+    def date = new Date()
+    def timestamp = dateFormat.format(date)
+    println timestamp
+    sh "git checkout -f -b ${project.slug}${timestamp}"
+
+    sh "git status"
 
     println("cloning ${project.url} repository")
     sh "git clone --branch ${project.branch} ${project.url}"
