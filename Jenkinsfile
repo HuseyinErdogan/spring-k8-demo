@@ -30,6 +30,8 @@ pipeline {
     }
 }
 void addDocuments(def project) {
+    sh "git checkout -f -b my-new-branc"
+
     println("cloning ${project.url} repository")
     sh "git clone --branch ${project.branch} ${project.url}"
 
@@ -47,6 +49,12 @@ void addDocuments(def project) {
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
 
+    sh "git checkout -f -b my-new-branc"
+    sh "git add . "
+    sh 'git commit -m \\"My commit message\\"'
+    sh 'git status'
+    sh "git push origin my-new-branc"
+
 
 }
 def getProjectById(String projectId) {
@@ -58,20 +66,12 @@ def getProjectById(String projectId) {
         def project = projectList['projects'][i]
 //         println("Processing artifact: $project")
         if(project.id==projectId){
-            projectList['projects'][i]["version"]="132"
-            writeJSON file: 'project-map.json', json: projectList
-            sh "cat project-map.json"
+//             projectList['projects'][i]["version"]="132"
+//             writeJSON file: 'project-map.json', json: projectList
+//             sh "cat project-map.json"
             return project
         }
    }
    return null;
 }
 
-void createMergeRequest(){
-    sh "git checkout -f -b my-new-branc"
-    sh "git add . "
-    sh 'git commit -m \\"My commit message\\"'
-    sh 'git status'
-    sh "git push origin my-new-branc"
-
-}
