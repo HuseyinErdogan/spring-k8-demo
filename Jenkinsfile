@@ -29,13 +29,23 @@ pipeline {
     }
 }
 void addDocuments(def project) {
-    echo "CLONE REPOSITORY ${project.url}"
+    println("cloning ${project.url} repository")
     sh "git clone --branch ${project.branch} ${project.url}"
+
+    println("creating directory ${project.destination_path}/${project.slug}")
     sh "mkdir -p ${project.destination_path}/${project.slug}"
+
     sh "cp ${project.slug}/README.md ${project.destination_path}/${project.slug}/"
+
     sh "cp -r ${project.slug}/docs ${project.destination_path}/${project.slug}/"
+    println("documents added to ${project.destination_path}/${project.slug}")
+
     sh "ls ${project.destination_path}/${project.slug}/"
-    sh "ls -lart ./*"
+
+    println("deleting the cloned repository ${project.slug}")
+    sh "rm -rf ${project.slug}"
+
+    createMergeRequest();
 }
 def getProjectById(String projectId) {
     echo "GET PROJECT INFO"
@@ -50,4 +60,13 @@ def getProjectById(String projectId) {
         }
    }
    return null;
+}
+
+void createMergeRequest(){
+    sh "git checkout -b my-new-branch"
+    sh "git add . \n
+        git commit -m 'My commit message'"
+
+    sh "git push origin my-new-branch"
+
 }
