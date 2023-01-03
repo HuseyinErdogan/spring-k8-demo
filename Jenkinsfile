@@ -25,14 +25,14 @@ pipeline {
 }
 void cloneRepository(String url, String branch, String credentialsId) {
     echo "CLONE REPOSITORY"
-    git branch: 'main', credentialsId: 'github', url: 'https://github.com/HuseyinErdogan/spring-k8-demo.git'
+    git branch: 'master', credentialsId: 'github', url: 'https://github.com/HuseyinErdogan/Mentorship-Application.git'
+    sh "git clone https://github.com/HuseyinErdogan/Mentorship-Application.git"
     sh "ls -lart ./*"
-    sh "git checkout dev"
     sh "ls"
 }
 def getProjectInfo(String projectId) {
     echo "GET PROJECT INFO"
-    def projectList = readJSON file: '/project-map.json'
+    def projectList = readJSON file: 'project-map.json'
 
     for(i=0; i<projectList['projects'].size(); i++)  {
         def project = projectList['projects'][i]
