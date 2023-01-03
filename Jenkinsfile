@@ -34,6 +34,7 @@ void addDocuments(def project) {
     sh "mkdir -p ${project.destination_path}/${project.slug}"
     sh "cp ${project.slug}/README.md ${project.destination_path}/${project.slug}/"
     sh "cp -r ${project.slug}/docs ${project.destination_path}/${project.slug}/"
+    sh "ls ${project.destination_path}/${project.slug}/"
     sh "ls -lart ./*"
 }
 def getProjectById(String projectId) {
