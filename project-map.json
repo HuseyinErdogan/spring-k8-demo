@@ -5,7 +5,8 @@
       "name": "Mentorship Application",
       "slug": "Mentorship-Application",
       "url": "https://github.com/HuseyinErdogan/Mentorship-Application.git",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "422",
