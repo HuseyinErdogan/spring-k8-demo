@@ -5,11 +5,11 @@ pipeline {
         stage('Checkout') {
             steps {
             script {
-                sh "rm -rf Mentorship-Application"
-                sh "rm -rf Demo"
+//                 sh "rm -rf Mentorship-Application"
+//                 sh "rm -rf Demo"
                 sh "ls"
-                cloneRepository("https://github.com/HuseyinErdogan/Mentorship-Application.git", "master", "github", "Mentorship-Application")
-                cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
+//                 cloneRepository("https://github.com/HuseyinErdogan/Mentorship-Application.git", "master", "github", "Mentorship-Application")
+//                 cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
                 getProjectInfo("test")
                 }
             }
