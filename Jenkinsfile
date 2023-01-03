@@ -26,15 +26,11 @@ pipeline {
         }
     }
 }
-void cloneRepository(String url, String branch, String credentialsId) {
+void cloneRepository(String url, String branch, String credentialsId, def project) {
     echo "CLONE REPOSITORY $url"
-//     git url: url, branch: branch, credentialsId: credentialsId
     sh "git clone --branch $branch $url"
-    sh "ls -lart ./*"
-    sh "ls"
-    sh "cp Mentorship-Application/README.md test/"
-    sh "cp -r Mentorship-Application/docs test/"
-
+    sh "cp $projectSlug/README.md test/"
+    sh "cp -r $projectSlug/docs test/"
     sh "ls -lart ./*"
 }
 def getProjectInfo(String projectId) {
