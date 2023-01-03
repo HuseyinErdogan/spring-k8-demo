@@ -1,3 +1,5 @@
+import java.time.LocalDateTime
+
 pipeline {
     agent any
 
@@ -5,8 +7,8 @@ pipeline {
         stage('Checkout') {
             steps {
             script {
-                def now = new Date()
-                println now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
+                def dt = LocalDateTime.now()
+                println dt
                 sh "ls"
                 def project = getProjectById("123")
                 println("Project Name: ${project.name}")
