@@ -34,7 +34,8 @@ void addDocuments(def project) {
     def date = new Date()
     def timestamp = dateFormat.format(date)
     println timestamp
-    sh "git checkout -f -b ${project.slug}${timestamp}"
+    def branch = "${project.slug}-mr-at-${timestamp}"
+    sh "git checkout -f -b ${branch}"
 
     sh "git status"
 
@@ -57,7 +58,7 @@ void addDocuments(def project) {
     sh "git add . "
     sh 'git commit -m \\"My commit message\\"'
     sh 'git status'
-    sh "git push origin my-new-branc3"
+    sh "git push origin ${branch}"
 
 
 }
