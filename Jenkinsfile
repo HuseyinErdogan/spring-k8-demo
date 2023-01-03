@@ -30,7 +30,7 @@ pipeline {
     }
 }
 void addDocuments(def project) {
-    def dateFormat = new SimpleDateFormat("yyyy.MM.dd-HH:mm:ss")
+    def dateFormat = new SimpleDateFormat("yyyy.MM.dd-HH.mm.ss")
     def date = new Date()
     def timestamp = dateFormat.format(date)
     println timestamp
