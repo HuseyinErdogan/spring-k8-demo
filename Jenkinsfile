@@ -41,6 +41,7 @@ def getProjectInfo(String projectId) {
     for(i=0; i<projectList['projects'].size(); i++)  {
         def project = projectList['projects'][i]
         println("Processing artifact: $project")
+        println(project.project_id)
 
 //         def providerArtifacts = artifact['providers']
 //         def themeArtifacts = artifact['basetheme']
