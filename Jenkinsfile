@@ -7,6 +7,7 @@ pipeline {
             script {
                 sh "ls"
                 cloneRepository("https://github.com/HuseyinErdogan/Mentorship-Application.git", "master", "github")
+                cloneRepository("https://github.com/kedark3/Demo.git", "master", "github")
                 getProjectInfo("test")
                 }
             }
@@ -24,10 +25,10 @@ pipeline {
     }
 }
 void cloneRepository(String url, String branch, String credentialsId) {
-//     echo "CLONE REPOSITORY"
-// //     git url: url, branch: branch, credentialsId: credentialsId
-//     sh "ls -lart ./*"
-//     sh "ls"
+    echo "CLONE REPOSITORY $url"
+    git url: url, branch: branch, credentialsId: credentialsId
+    sh "ls -lart ./*"
+    sh "ls"
 //     sh "cp Mentorship-Application/README.md test/*"
 }
 def getProjectInfo(String projectId) {
@@ -38,8 +39,8 @@ def getProjectInfo(String projectId) {
         def project = projectList['projects'][i]
         println("Processing artifact: $project")
 
-        def providerArtifacts = artifact['providers']
-        def themeArtifacts = artifact['basetheme']
-        def spiArtifacts = artifact['spis']
+//         def providerArtifacts = artifact['providers']
+//         def themeArtifacts = artifact['basetheme']
+//         def spiArtifacts = artifact['spis']
    }
 }
