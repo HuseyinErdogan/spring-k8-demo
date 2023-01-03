@@ -10,7 +10,8 @@ pipeline {
                 sh "ls"
                 def project = getProjectById("123")
                 println("Project Name: ${project.name}")
-                addDocuments(project)
+                createMergeRequest();
+//                 addDocuments(project)
 //                 cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
 
                 }
@@ -45,7 +46,7 @@ void addDocuments(def project) {
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
 
-    createMergeRequest();
+
 }
 def getProjectById(String projectId) {
     echo "GET PROJECT INFO"
