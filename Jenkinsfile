@@ -31,6 +31,7 @@ pipeline {
 void addDocuments(def project) {
     echo "CLONE REPOSITORY ${project.url}"
     sh "git clone --branch ${project.branch} ${project.url}"
+    sh "mkdir ${project.destination_path}/${project.slug}"
     sh "cp ${project.slug}/README.md ${project.destination_path}/${project.slug}/"
     sh "cp -r ${project.slug}/docs ${project.destination_path}/${project.slug}/"
     sh "ls -lart ./*"
