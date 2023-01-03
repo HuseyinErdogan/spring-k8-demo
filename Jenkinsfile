@@ -6,6 +6,7 @@ pipeline {
             steps {
             script {
                 sh "rm -rf Mentorship-Application"
+                sh "rm -rf Demo"
                 sh "ls"
                 cloneRepository("https://github.com/HuseyinErdogan/Mentorship-Application.git", "master", "github")
                 cloneRepository("https://github.com/kedark3/Demo.git", "master", "github")
