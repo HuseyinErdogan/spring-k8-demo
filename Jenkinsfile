@@ -5,7 +5,8 @@ pipeline {
         stage('Checkout') {
             steps {
             script {
-                echo "TimeStamp: ${currentBuild.startTimeInMillis}"
+                def now = new Date()
+                println now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
                 sh "ls"
                 def project = getProjectById("123")
                 println("Project Name: ${project.name}")
