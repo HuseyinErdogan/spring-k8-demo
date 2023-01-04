@@ -51,19 +51,16 @@ void addDocuments(def project) {
         sh "cp -r ${project.slug}/docs docs/${project.destination_path}/${project.slug}/"
         println("documents added to docs/${project.destination_path}/${project.slug}")
     }
-    sh "ls docs"
-    sh "ls docs/${project.destination_path}/${project.slug}/"
 
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
 
+    sh "git add . "
 
+    sh 'git status'
+    sh 'git commit -m \\"My commit message\\"'
 
-//     sh "git add . "
-//     sh 'git commit -m \\"My commit message\\"'
-//     sh 'git status'
-//     sh "git push origin ${branch}"
-
+    sh "git push origin ${branch}"
 
 }
 def getProjectById(String projectId) {
