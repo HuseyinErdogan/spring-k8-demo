@@ -4,20 +4,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-            script {
-                sh "ls"
-                sh "rm -rf plateau-iam"
-                def project = getProjectById("422")
-                println("Project Name: ${project.name}")
+        def project = getProjectById("422")
+        println("Project Name: ${project.name}")
 //                 createMergeRequest();
-                addDocuments(project)
-//                 cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
-
-                }
-            }
-        }
+        addDocuments(project)
         stage('Test') {
             steps {
                 echo 'Testing.. dev'
@@ -30,12 +20,7 @@ pipeline {
         }
     }
 }
-void addDocuments(def project) {
-    stage('Add Documents') {
-        steps {
-            echo 'Testing.. dev'
-        }
-    }
+def addDocuments(def project) = stage("test") {
     def dateFormat = new SimpleDateFormat("yyyy.MM.dd-HH.mm.ss")
     def date = new Date()
     def timestamp = dateFormat.format(date)
