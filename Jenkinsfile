@@ -7,6 +7,7 @@ pipeline {
         stage('Checkout') {
             steps {
             script {
+                addBaseImageDocuments()
                 sh "ls"
                 def project = getProjectById("123")
                 println("Project Name: ${project.name}")
@@ -65,7 +66,6 @@ void addDocuments(def project) {
 def getProjectById(String projectId) {
     echo "GET PROJECT INFO"
     def projectList = readJSON file: 'project-map.json'
-    echo "READ JSON"
 
     for(i=0; i<projectList['projects'].size(); i++)  {
         def project = projectList['projects'][i]
@@ -80,3 +80,17 @@ def getProjectById(String projectId) {
    return null;
 }
 
+def addBaseImageDocuments(def project){
+    def a = "20.0.2"
+    if(a.isNumber()){
+        println("THAT IS VERSION NUMBER")
+    }else{
+        println("THAT IS NOT VERSION NUMBER")
+    }
+    def ab = "20.0.2a"
+    if(ab.isNumber()){
+        println("THAT IS VERSION NUMBER")
+    }else{
+        println("THAT IS NOT VERSION NUMBER")
+    }
+}

@@ -6,8 +6,7 @@
       "slug": "Mentorship-Application",
       "url": "https://github.com/HuseyinErdogan/Mentorship-Application.git",
       "branch": "master",
-      "destination_path": "plateau-iam/providers",
-      "version": ""
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "422",
@@ -15,7 +14,7 @@
       "slug": "identity-provider",
       "url": "https://gitlab.rally.softtech/plateau-security/identity-provider",
       "branch": "base",
-      "version": ""
+      "destination_path": "plateau-iam/base-images"
     },
     {
       "id": "857",
@@ -24,7 +23,7 @@
       "url": "https://gitlab.rally.softtech/plateau-security/proxy-plateau-service/iamusers",
       "group": "proxy-plateau-service",
       "branch": "master",
-      "version": ""
+      "destination_path": "plateau-iam-proxy-components"
     },
     {
       "id": "850",
@@ -33,7 +32,7 @@
       "url": "https://gitlab.rally.softtech/plateau-security/proxy-plateau-service/amauthorization",
       "group": "proxy-plateau-service",
       "branch": "master",
-      "version": ""
+      "destination_path": "plateau-iam-proxy-components"
     },
     {
       "id": "1355",
@@ -42,7 +41,7 @@
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/iam-user-queries-spi",
       "group": "plateau-iam-providers",
       "branch": "master",
-      "version": ""
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "1336",
@@ -50,7 +49,8 @@
       "slug": "iam-java-script-providers",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/iam-java-script-providers",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "1275",
@@ -58,7 +58,8 @@
       "slug": "rest-user-storage-spi",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/rest-user-storage-spi",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "1233",
@@ -66,7 +67,8 @@
       "slug": "iam-custom-password-policies",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/iam-custom-password-policies",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "1165",
@@ -74,7 +76,8 @@
       "slug": "event-listener-spi",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/event-listener-spi",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "1095",
@@ -82,7 +85,8 @@
       "slug": "user-registration-api",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/user-registration-api",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "1065",
@@ -90,7 +94,8 @@
       "slug": "iamsso",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/iamsso",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "970",
@@ -98,7 +103,8 @@
       "slug": "keycloak-session-limiter",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/keycloak-session-limiter",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "854",
@@ -106,7 +112,8 @@
       "slug": "notification-provider",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/notification-provider",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "847",
@@ -114,7 +121,8 @@
       "slug": "ldap-custom-group-selector-spi",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/ldap-custom-group-selector-spi",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "845",
@@ -122,7 +130,8 @@
       "slug": "authentication-api",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/authentication-api",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "827",
@@ -130,7 +139,8 @@
       "slug": "metrics-spi",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/metrics-spi",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "786",
@@ -138,7 +148,8 @@
       "slug": "logstash-event-listener",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/logstash-event-listener",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "777",
@@ -146,7 +157,8 @@
       "slug": "mfa-token-api",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/mfa-token-api",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "762",
@@ -162,7 +174,8 @@
       "slug": "isbank-identity-provider-spi",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/isbank-identity-provider-spi",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "745",
@@ -170,7 +183,8 @@
       "slug": "captcha-login-provider",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/captcha-login-provider",
       "group": "plateau-iam-providers",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     },
     {
       "id": "429",
@@ -178,21 +192,22 @@
       "slug": "user-storage-spi",
       "url": "https://gitlab.rally.softtech/plateau-security/plateau-iam-providers/user-storage-spi",
       "group": "plateau-iam-providers",
-      "branch": "master"
-    },
-    {
-      "id": "1376",
-      "name": "Plateau Cloud Gateway",
-      "slug": "plateau-cloud-gateway",
-      "url": "https://gitlab.rally.softtech/plateau-security/plateau-cloud-gateway",
-      "branch": "master"
-    },
-    {
-      "id": "1318",
-      "name": "IAM Commons Password Utils",
-      "slug": "iamcommons-password-utils",
-      "url": "https://gitlab.rally.softtech/plateau-security/iamcommons-password-utils",
-      "branch": "master"
+      "branch": "master",
+      "destination_path": "plateau-iam/providers"
     }
+//    {
+//      "id": "1376",
+//      "name": "Plateau Cloud Gateway",
+//      "slug": "plateau-cloud-gateway",
+//      "url": "https://gitlab.rally.softtech/plateau-security/plateau-cloud-gateway",
+//      "branch": "master"
+//    },
+//    {
+//      "id": "1318",
+//      "name": "IAM Commons Password Utils",
+//      "slug": "iamcommons-password-utils",
+//      "url": "https://gitlab.rally.softtech/plateau-security/iamcommons-password-utils",
+//      "branch": "master"
+//    }
   ]
 }
