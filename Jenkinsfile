@@ -62,7 +62,7 @@ void addDocuments(def project) {
     sh "git add . "
 
     sh 'git status'
-    sh 'git commit -m \\"My commit message\\"'
+    sh "git commit -m \\"My commit message\\""
 
     sh "git push origin ${branch}"
 
