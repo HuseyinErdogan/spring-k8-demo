@@ -35,9 +35,9 @@ void addDocuments(def project) {
     def timestamp = dateFormat.format(date)
     def branch = "${project.slug}-mr-at-${timestamp}"
 
-    println("Created branch name: ${branch}")
-
     sh "git checkout -f -b ${branch}"
+
+    println("Created branch name: ${branch}")
 
     println("cloning ${project.url} repository")
     sh "git clone --branch ${project.branch} ${project.url}"
@@ -55,6 +55,10 @@ void addDocuments(def project) {
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
 
+    sh "ls"
+
+    sh "ls docs"
+
     sh "git add . "
 
     sh 'git status'
@@ -68,7 +72,7 @@ def getProjectById(String projectId) {
 
     for(i=0; i<projectList['projects'].size(); i++)  {
         def project = projectList['projects'][i]
-        if(project.id==projectId){
+        if(project.id.equals(projectId)){
             return project
         }
    }
