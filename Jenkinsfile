@@ -9,7 +9,7 @@ pipeline {
             script {
                 sh "ls"
                 def project = getProjectById("123")
-                addBaseImageDocuments(project)
+//                 addBaseImageDocuments(project)
                 println("Project Name: ${project.name}")
 //                 createMergeRequest();
                 addDocuments(project)
@@ -56,6 +56,16 @@ void addDocuments(def project) {
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
 
+    dir('${project.slug}') {
+       def files = findFiles()
+
+       files.each{ f ->
+          if(f.directory) {
+            echo "This is directory: ${f.name} "
+          }
+       }
+    }
+
     sh "git add . "
     sh 'git commit -m \\"My commit message\\"'
     sh 'git status'
@@ -80,17 +90,6 @@ def getProjectById(String projectId) {
    return null;
 }
 
-void addBaseImageDocuments(def project){
-    def a = "20.0.2"
-    if(a=~(\d+)\.(\d+)\.(\d+)){
-        println("THAT IS VERSION NUMBER")
-    }else{
-        println("THAT IS NOT VERSION NUMBER")
-    }
-    def ab = "20.0.2a"
-    if(ab=~(\d+)\.(\d+)\.(\d+)){
-        println("THAT IS VERSION NUMBER")
-    }else{
-        println("THAT IS NOT VERSION NUMBER")
-    }
-}
+// void addBaseImageDocuments(def project){
+//     ==~ '([0-9]+).([0-9]+).([0-9]+)'
+// }
