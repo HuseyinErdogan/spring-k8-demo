@@ -8,8 +8,7 @@ pipeline {
             steps {
             script {
                 sh "ls"
-                def project = getProjectById("123")
-//                 addBaseImageDocuments(project)
+                def project = getProjectById("422")
                 println("Project Name: ${project.name}")
 //                 createMergeRequest();
                 addDocuments(project)
@@ -45,32 +44,25 @@ void addDocuments(def project) {
 
     println("creating directory ${project.destination_path}/${project.slug}")
     sh "mkdir -p ${project.destination_path}/${project.slug}"
-
-    sh "cp ${project.slug}/README.md ${project.destination_path}/${project.slug}/"
-
-    sh "cp -r ${project.slug}/docs ${project.destination_path}/${project.slug}/"
-    println("documents added to ${project.destination_path}/${project.slug}")
+    if(project.id.equals("422")){ //check if its identity provider project
+        addBaseImageDocuments(project)
+    }else{
+        sh "cp ${project.slug}/README.md ${project.destination_path}/${project.slug}/"
+        sh "cp -r ${project.slug}/docs ${project.destination_path}/${project.slug}/"
+        println("documents added to ${project.destination_path}/${project.slug}")
+    }
 
     sh "ls ${project.destination_path}/${project.slug}/"
 
-    dir(project.slug) {
-       def files = findFiles()
-
-       files.each{ f ->
-          if(f.directory) {
-            echo "This is directory: ${f.name} "
-          }
-       }
-    }
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
 
 
 
-    sh "git add . "
-    sh 'git commit -m \\"My commit message\\"'
-    sh 'git status'
-    sh "git push origin ${branch}"
+//     sh "git add . "
+//     sh 'git commit -m \\"My commit message\\"'
+//     sh 'git status'
+//     sh "git push origin ${branch}"
 
 
 }
@@ -91,6 +83,22 @@ def getProjectById(String projectId) {
    return null;
 }
 
-// void addBaseImageDocuments(def project){
-//     ==~ '([0-9]+).([0-9]+).([0-9]+)'
-// }
+void addBaseImageDocuments(def project){
+    def baseImages = []
+    dir(project.slug) {
+       def files = findFiles()
+       files.each{ f ->
+          if(f.directory) {
+            if(f.name ==~ '([0-9]+).([0-9]+).([0-9]+)'){
+                baseImages.add(f.name)
+            }
+          }
+       }
+    }
+    for(baseImage in baseImages){
+        sh "mkdir -p ${project.destination_path}/${baseImage}"
+        sh "cp ${project.slug}/${baseImage}/README.md ${project.destination_path}/${baseImage}/"
+        println("Base image ${baseImage} document has been added")
+        sh "ls ${project.slug}/${baseImage}/"
+    }
+}
