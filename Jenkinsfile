@@ -31,6 +31,11 @@ pipeline {
     }
 }
 void addDocuments(def project) {
+    stage('Add Documents') {
+        steps {
+            echo 'Testing.. dev'
+        }
+    }
     def dateFormat = new SimpleDateFormat("yyyy.MM.dd-HH.mm.ss")
     def date = new Date()
     def timestamp = dateFormat.format(date)
