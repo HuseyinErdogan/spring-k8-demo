@@ -36,6 +36,10 @@ void addDocuments(def project) {
     def timestamp = dateFormat.format(date)
     def branch = "${project.slug}-mr-at-${timestamp}"
 
+    sh 'git config --global user.email "huseyinerdoganhe@outlook.com"'
+    sh 'git config --global user.name "Huseyin"'
+
+
     sh "git checkout -f -b ${branch}"
 
     println("Created branch name: ${branch}")
@@ -57,7 +61,7 @@ void addDocuments(def project) {
     sh "rm -rf ${project.slug}"
 
     sh "git add . "
-    sh 'git commit -m "test"'
+    sh 'git commit -m "${project.name} documentation has been added to docs/${project.destination_path}"'
     sh 'git status'
     sh 'git push -u origin ${branch} \
           -o merge_request.create \
