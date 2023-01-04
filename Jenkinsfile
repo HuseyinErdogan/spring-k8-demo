@@ -36,8 +36,8 @@ void addDocuments(def project) {
     def timestamp = dateFormat.format(date)
     def branch = "${project.slug}-mr-at-${timestamp}"
 
-    sh 'git config --global user.email "huseyinerdoganhe@outlook.com"'
-    sh 'git config --global user.name "Huseyin"'
+    sh "git config --global user.email \"huseyinerdoganhe@outlook.com\""
+    sh "git config --global user.name \"Huseyin\""
 
 
     sh "git checkout -f -b ${branch}"
@@ -62,13 +62,13 @@ void addDocuments(def project) {
 
     sh "git add . "
     sh "git commit -m \"${project.name} documentation has been added to docs/${project.destination_path}\""
-    sh 'git status'
-    sh 'git push -u origin ${branch} \
+    sh "git status"
+    sh "git push -u origin ${branch} \
           -o merge_request.create \
-          -o merge_request.title="${project.name} Documentation Merge Request" \
-          -o merge_request.description="This MR is created for adding the documents of the ${project.name} project." \
+          -o merge_request.title=\"${project.name} Documentation Merge Request\" \
+          -o merge_request.description=\"This MR is created for adding the documents of the ${project.name} project.\" \
           -o merge_request.target=master \
-          -o merge_request.remove_source_branch'
+          -o merge_request.remove_source_branch"
 
 }
 def getProjectById(String projectId) {
