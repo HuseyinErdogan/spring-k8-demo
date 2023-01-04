@@ -57,8 +57,8 @@ void addDocuments(def project) {
     sh "rm -rf ${project.slug}"
 
     sh "git add . "
-    sh 'git status'
     sh 'git commit -m "${project.name documentation has been added to docs/${project.destination_path}}"'
+    sh 'git status'
     sh 'git push -u origin ${branch} \
           -o merge_request.create \
           -o merge_request.title="${project.name} Documentation Merge Request" \
