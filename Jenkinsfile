@@ -53,9 +53,6 @@ void addDocuments(def project) {
 
     sh "ls ${project.destination_path}/${project.slug}/"
 
-    println("deleting the cloned repository ${project.slug}")
-    sh "rm -rf ${project.slug}"
-
     dir('${project.slug}') {
        def files = findFiles()
 
@@ -65,6 +62,10 @@ void addDocuments(def project) {
           }
        }
     }
+    println("deleting the cloned repository ${project.slug}")
+    sh "rm -rf ${project.slug}"
+
+
 
     sh "git add . "
     sh 'git commit -m \\"My commit message\\"'
