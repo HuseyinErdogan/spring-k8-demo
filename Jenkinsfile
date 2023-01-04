@@ -53,7 +53,7 @@ void addDocuments(def project) {
 
     sh "ls ${project.destination_path}/${project.slug}/"
 
-    dir('${project.slug}') {
+    dir('${workspace}/${project.slug}') {
        def files = findFiles()
 
        files.each{ f ->
