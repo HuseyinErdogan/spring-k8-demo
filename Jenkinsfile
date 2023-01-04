@@ -59,7 +59,12 @@ void addDocuments(def project) {
     sh "git add . "
     sh 'git status'
     sh 'git commit -m "${project.name documentation has been added to docs/${project.destination_path}}"'
-    sh "git push origin ${branch}"
+    sh 'git push -u origin ${branch} \
+          -o merge_request.create \
+          -o merge_request.title="${project.name} Documentation Merge Request" \
+          -o merge_request.description="This MR is created for adding the documents of the ${project.name} project." \
+          -o merge_request.target=master \
+          -o merge_request.remove_source_branch'
 
 }
 def getProjectById(String projectId) {
