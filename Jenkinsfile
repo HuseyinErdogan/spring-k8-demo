@@ -8,7 +8,7 @@ pipeline {
             steps {
             script {
                 sh "ls"
-                sh "rm -f plateau-iam"
+                sh "rm -rf plateau-iam"
                 def project = getProjectById("422")
                 println("Project Name: ${project.name}")
 //                 createMergeRequest();
