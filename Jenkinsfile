@@ -10,6 +10,7 @@ pipeline {
                 addBaseImageDocuments()
                 sh "ls"
                 def project = getProjectById("123")
+                addBaseImageDocuments(project)
                 println("Project Name: ${project.name}")
 //                 createMergeRequest();
                 addDocuments(project)
@@ -80,7 +81,7 @@ def getProjectById(String projectId) {
    return null;
 }
 
-def addBaseImageDocuments(def project){
+void addBaseImageDocuments(def project){
     def a = "20.0.2"
     if(a.isNumber()){
         println("THAT IS VERSION NUMBER")
