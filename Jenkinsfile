@@ -7,7 +7,6 @@ pipeline {
         stage('Checkout') {
             steps {
             script {
-                addBaseImageDocuments()
                 sh "ls"
                 def project = getProjectById("123")
                 addBaseImageDocuments(project)
