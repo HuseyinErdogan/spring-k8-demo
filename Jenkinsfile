@@ -8,6 +8,7 @@ pipeline {
             steps {
             script {
                 sh "ls"
+                sh "rm -f plateau-iam"
                 def project = getProjectById("422")
                 println("Project Name: ${project.name}")
 //                 createMergeRequest();
@@ -55,15 +56,9 @@ void addDocuments(def project) {
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
 
-    sh "ls"
-
-    sh "ls docs"
-
     sh "git add . "
-
     sh 'git status'
     sh 'git commit -m "My commit message"'
-
     sh "git push origin ${branch}"
 
 }
