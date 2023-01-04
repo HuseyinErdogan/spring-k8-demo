@@ -82,13 +82,17 @@ def getProjectById(String projectId) {
 
 void addBaseImageDocuments(def project){
     def a = "20.0.2"
-    if(a.isNumber()){
+    def parser = /(?<major>\d+).(?<minor>\d+).(?<patch>\d+)/
+    def match = a =~ parser
+    if(match.matches()){
         println("THAT IS VERSION NUMBER")
     }else{
         println("THAT IS NOT VERSION NUMBER")
     }
     def ab = "20.0.2a"
-    if(ab.isNumber()){
+    def parser = /(?<major>\d+).(?<minor>\d+).(?<patch>\d+)/
+    def match = ab =~ parser
+    if(match.matches()){
         println("THAT IS VERSION NUMBER")
     }else{
         println("THAT IS NOT VERSION NUMBER")
