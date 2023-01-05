@@ -4,7 +4,6 @@ pipeline {
     agent any
 
     stages {
-        makeStage().call()
         stage('Checkout') {
             steps {
             script {
@@ -108,11 +107,4 @@ void addBaseImageDocuments(def project){
         println("Base image ${baseImage} document has been added")
         sh "ls docs/${project.destination_path}/${baseImage}/"
     }
-}
-def makeStage = {
-  return {
-    stage('a') {
-      echo 'Hello World'
-    }
-  }
 }
