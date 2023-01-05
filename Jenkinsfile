@@ -4,13 +4,7 @@ pipeline {
     agent any
 
     stages {
-        stage ('hello world') {
-          steps {
-            script {
-              makeStage().call()
-            }
-          }
-        }
+        makeStage().call()
         stage('Checkout') {
             steps {
             script {
