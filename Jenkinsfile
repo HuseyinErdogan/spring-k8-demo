@@ -37,8 +37,8 @@ void addDocuments(def project) {
     def timestamp = dateFormat.format(date)
     def branch = "${project.slug}-mr-at-${timestamp}"
 
-    sh "git config --global user.email \"huseyinerdoganhe@outlook.com\""
-    sh "git config --global user.name \"Huseyin\""
+//     sh "git config --global user.email \"huseyinerdoganhe@outlook.com\""
+//     sh "git config --global user.name \"Huseyin\""
 
 
     sh "git checkout -f -b ${branch}"
@@ -47,6 +47,12 @@ void addDocuments(def project) {
 
     println("cloning ${project.url} repository")
     sh "git clone --branch ${project.branch} ${project.url}"
+
+    sh "cd ${project.slug}"
+    sh "git diff HEAD^"
+    sh "cd .."
+
+    sh "git status"
 
     println("creating directory docs/${project.destination_path}/${project.slug}")
     sh "mkdir -p docs/${project.destination_path}/${project.slug}"
