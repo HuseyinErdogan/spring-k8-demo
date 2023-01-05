@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
             script {
