@@ -5,6 +5,9 @@ pipeline {
 
     stages {
         stage('Checkout') {
+            when {
+                branch 'master'
+            }
             steps {
             script {
                 sh "ls"
