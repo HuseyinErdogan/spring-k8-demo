@@ -49,6 +49,7 @@ void addDocuments(def project) {
 
     sh "cd ${project.slug}"
     sh "git diff HEAD^"
+    sh "git status"
     sh "cd .."
 
     sh "git status"
