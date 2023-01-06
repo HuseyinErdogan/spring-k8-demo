@@ -10,6 +10,7 @@ pipeline {
 //             }
             steps {
             script {
+                sh "node --version"
                 def project = getProjectById(params.project_id)
                 println("Project Name: ${project.name}")
                 addDocuments(project)
