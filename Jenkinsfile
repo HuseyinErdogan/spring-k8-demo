@@ -4,20 +4,21 @@ pipeline {
     agent any
 
     stages {
+        stage('remote') {
+            steps {
+                build job: 'remote-pipeline', parameters: [string(name: 'param1', value: "value1")
+                ]
+            }
+        }
         stage('Checkout') {
             when {
                 branch 'main'
             }
             steps {
             script {
-                sh "ls"
-                sh "rm -rf plateau-iam"
                 def project = getProjectById("422")
                 println("Project Name: ${project.name}")
-//                 createMergeRequest();
                 addDocuments(project)
-//                 cloneRepository("https://github.com/kedark3/Demo.git", "master", "github", "Demo")
-
                 }
             }
         }
