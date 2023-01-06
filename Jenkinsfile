@@ -4,19 +4,13 @@ pipeline {
     agent any
 
     stages {
-        stage('remote') {
-            steps {
-                build job: 'remote-pipeline', parameters: [string(name: 'param1', value: "value1")
-                ]
-            }
-        }
         stage('Checkout') {
-            when {
-                branch 'main'
-            }
+//             when {
+//                 branch 'main'
+//             }
             steps {
             script {
-                def project = getProjectById("422")
+                def project = getProjectById(params.project_id)
                 println("Project Name: ${project.name}")
                 addDocuments(project)
                 }
