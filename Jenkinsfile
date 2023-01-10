@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout') {
             steps{
                 build job: 'remote-pipeline', parameters: [
-                    string(name: 'project_id', value: '1389'), string(name: 'version', value: getVersion())
+                    string(name: 'project_id', value: '1389'), string(name: 'version', value: sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim().split(/=/)[1])
                 ]
             }
         }
@@ -114,12 +114,7 @@ void addBaseImageDocuments(def project){
     }
 }
 
-def getVersion() {
-    node{
-        def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
-        println("version_value::: "+version_value)
-        def version = version_value.split(/=/)[1]
-        println("version:" +version)
-        return version
-    }
-}
+// def getVersion() {
+//     def version_value =
+//     return version_value
+// }
