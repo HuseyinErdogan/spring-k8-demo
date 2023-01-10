@@ -12,18 +12,18 @@ pipeline {
                         string(name: 'version', value: getVersion())
                     ]
                 }
-            },
+            }
 //             when {
 //                 branch 'main'
 //             }
-            steps {
-            script {
-                sh "node --version"
-                def project = getProjectById(params.project_id)
-                println("Project Name: ${project.name}")
-                addDocuments(project)
-                }
-            }
+//             steps {
+//             script {
+//                 sh "node --version"
+//                 def project = getProjectById(params.project_id)
+//                 println("Project Name: ${project.name}")
+//                 addDocuments(project)
+//                 }
+//             }
         }
         stage('Test') {
             steps {
