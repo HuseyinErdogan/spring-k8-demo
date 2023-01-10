@@ -5,14 +5,10 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            {
-                stage('Add Documents to Plateau IAM Reference Document') {
-                    build job: 'remote-pipeline', parameters: [
-                        string(name: 'project_id', value: '1389'),
-                        string(name: 'version', value: getVersion())
-                    ]
-                }
-            }
+            build job: 'remote-pipeline', parameters: [
+                string(name: 'project_id', value: '1389'),
+                string(name: 'version', value: getVersion())
+            ]
 //             when {
 //                 branch 'main'
 //             }
