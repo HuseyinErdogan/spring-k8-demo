@@ -115,9 +115,11 @@ void addBaseImageDocuments(def project){
 }
 
 def getVersion() {
-    def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
-    println("version_value::: "+version_value)
-    def version = version_value.split(/=/)[1]
-    println("version:" +version)
-    return version
+    node{
+        def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
+        println("version_value::: "+version_value)
+        def version = version_value.split(/=/)[1]
+        println("version:" +version)
+        return version
+    }
 }
