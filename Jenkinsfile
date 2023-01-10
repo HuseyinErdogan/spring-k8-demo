@@ -5,9 +5,11 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            build job: 'remote-pipeline', parameters: [
-                string(name: 'project_id', value: '1389'), string(name: 'version', value: getVersion())
-            ]
+            steps{
+                build job: 'remote-pipeline', parameters: [
+                    string(name: 'project_id', value: '1389'), string(name: 'version', value: getVersion())
+                ]
+            }
         }
 //             when {
 //                 branch 'main'
