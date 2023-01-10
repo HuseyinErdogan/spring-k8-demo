@@ -114,11 +114,10 @@ void addBaseImageDocuments(def project){
     }
 }
 
-@NonCPS
 def getVersion() {
     def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
-    println(version_value)
+    println("version_value::: "+version_value)
     def version = version_value.split(/=/)[1]
-    println(version)
+    println("version:" +version)
     return version
 }
