@@ -5,6 +5,14 @@ pipeline {
 
     stages {
         stage('Checkout') {
+            {
+                stage('Add Documents to Plateau IAM Reference Document') {
+                    build job: 'remote-pipeline', parameters: [
+                        string(name: 'project_id', value: '1389'),
+                        string(name: 'version', value: getVersion())
+                    ]
+                }
+            },
 //             when {
 //                 branch 'main'
 //             }
@@ -107,4 +115,11 @@ void addBaseImageDocuments(def project){
         println("Base image ${baseImage} document has been added")
         sh "ls docs/${project.destination_path}/${baseImage}/"
     }
+}
+
+@NonCPS
+def getVersion() {
+    def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
+    def version = version_value.split(/=/)[1]
+    return version
 }
