@@ -11,26 +11,12 @@ pipeline {
 //                 ]
 //             }
 //         }
-//             when {
-//                 branch 'main'
-//             }
-//             steps {
-//             script {
-//                 sh "node --version"
-//                 def project = getProjectById(params.project_id)
-//                 println("Project Name: ${project.name}")
-//                 addDocuments(project)
-//                 }
-//             }
         stage('Test') {
             steps {
-                sh "node --version"
                 script{
                     def project = getProjectById("422")
                     println("Project Name: ${project.name}")
-
                     addDocuments(project)
-
                 }
             }
         }
