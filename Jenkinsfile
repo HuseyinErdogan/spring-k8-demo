@@ -24,12 +24,10 @@ pipeline {
 //             }
         stage('Test') {
             steps {
-                script {
-                    sh "node --version"
-                    def project = getProjectById("422")
-                    println("Project Name: ${project.name}")
-                    addDocuments(project)
-                }
+                sh "node --version"
+                def project = getProjectById("422")
+                println("Project Name: ${project.name}")
+                addDocuments(project)
             }
         }
         stage('Deploy') {
