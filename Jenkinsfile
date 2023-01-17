@@ -25,9 +25,10 @@ pipeline {
         stage('Test') {
             steps {
                 sh "node --version"
-                def project = getProjectById("422")
-                println("Project Name: ${project.name}")
                 script{
+                    def project = getProjectById("422")
+                    println("Project Name: ${project.name}")
+
                     addDocuments(project)
 
                 }
