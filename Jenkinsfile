@@ -4,13 +4,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps{
-                build job: 'remote-pipeline', parameters: [
-                    string(name: 'project_id', value: '1389'), string(name: 'version', value: sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim().split(/=/)[1])
-                ]
-            }
-        }
+//         stage('Checkout') {
+//             steps{
+//                 build job: 'remote-pipeline', parameters: [
+//                     string(name: 'project_id', value: '1389'), string(name: 'version', value: sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim().split(/=/)[1])
+//                 ]
+//             }
+//         }
 //             when {
 //                 branch 'main'
 //             }
@@ -24,7 +24,12 @@ pipeline {
 //             }
         stage('Test') {
             steps {
-                echo 'Testing.. dev'
+                script {
+                    sh "node --version"
+                    def project = getProjectById("422")
+                    println("Project Name: ${project.name}")
+                    addDocuments(project)
+                }
             }
         }
         stage('Deploy') {
@@ -51,11 +56,6 @@ void addDocuments(def project) {
     println("cloning ${project.url} repository")
     sh "git clone --branch ${project.branch} ${project.url}"
 
-    sh "cd ${project.slug}"
-    sh "git diff HEAD^"
-    sh "git status"
-    sh "cd .."
-
     sh "git status"
 
     println("creating directory docs/${project.destination_path}/${project.slug}")
@@ -67,6 +67,10 @@ void addDocuments(def project) {
         sh "cp -r ${project.slug}/docs docs/${project.destination_path}/${project.slug}/"
         println("documents added to docs/${project.destination_path}/${project.slug}")
     }
+
+    def title = "---\n
+                 title: Multi Tenant SPI\n
+                 ---\n"
 
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
