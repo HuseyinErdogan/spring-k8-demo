@@ -68,10 +68,6 @@ void addDocuments(def project) {
         println("documents added to docs/${project.destination_path}/${project.slug}")
     }
 
-    def title = "---\n
-                 title: Multi Tenant SPI\n
-                 ---\n"
-
     println("deleting the cloned repository ${project.slug}")
     sh "rm -rf ${project.slug}"
 
