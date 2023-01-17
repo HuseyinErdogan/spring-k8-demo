@@ -27,7 +27,10 @@ pipeline {
                 sh "node --version"
                 def project = getProjectById("422")
                 println("Project Name: ${project.name}")
-                addDocuments(project)
+                script{
+                    addDocuments(project)
+
+                }
             }
         }
         stage('Deploy') {
