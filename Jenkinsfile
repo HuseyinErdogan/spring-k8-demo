@@ -15,6 +15,9 @@ pipeline {
             steps {
                 script{
                     def output = sh returnStdout: true, script: 'git status --porcelain'
+                    if(output){
+                        println("TESTSETS")
+                    }
                     println("Status: ${output}")
                     def project = getProjectById("422")
                     println("Project Name: ${project.name}")
