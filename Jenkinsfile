@@ -14,11 +14,16 @@ pipeline {
         stage('Test') {
             steps {
                 script{
-                    def file = readFile "README.md"
-                    file = file.replaceFirst("[\\\r\\\n]+", "\n TEST\n")
-                    println("WRITE README")
-                    writeFile file: "README.md", text: file
-                    sh 'cat README.md'
+                    def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
+                    sh "echo Project in version value: $version_value"
+                    sh "echo Project in version value: ${version_value[0]}"
+                    def version = version_value.split(/=/)[1]
+                    sh "echo final version: $version"
+//                     def file = readFile "README.md"
+//                     file = file.replaceFirst("[\\\r\\\n]+", "\nTEST\n")
+//                     println("WRITE README")
+//                     writeFile file: "README.md", text: file
+//                     sh 'cat README.md'
 //                     def f = new File('README.md')
 //                     def lines = f.readLines()
 //                     lines = lines.plus(1, "I'm a new line!")
