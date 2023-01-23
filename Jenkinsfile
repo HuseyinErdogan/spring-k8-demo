@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script{
                     def output = sh returnStdout: true, script: 'git status --porcelain'
-                    if(output){
+                    if(output.isEmpty()){
                         println("TESTSETS")
                     }
                     println("Status: ${output}")
