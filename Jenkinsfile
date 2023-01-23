@@ -18,13 +18,13 @@ pipeline {
                     println(version_value)
                     println(version_value.getClass())
                     def arr = version_value.split('\n')
-                    def splitVersion;
+                    String splitVersion;
                     for(a in arr){
                         println("AAA:"+a)
-                        splitVersion = a.trim().split('=')
+                        splitVersion = a.split(/=/)[1].trim()
                         println(splitVersion)
-                        if(splitVersion[1] ==~ '([0-9]+).([0-9]+).([0-9]+)'){
-                            println("Version found: "+splitVersion[1])
+                        if(splitVersion ==~ '([0-9]+).([0-9]+).([0-9]+)'){
+                            println("Version found: "+splitVersion)
                         }
                     }
 
