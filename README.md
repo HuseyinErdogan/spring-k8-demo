@@ -1,6 +1,4 @@
----
-title: Multi Tenant SPI
----
+# Multi Tenant SPI
 
 # Contents
 
