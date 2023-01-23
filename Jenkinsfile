@@ -22,6 +22,7 @@ pipeline {
                     for(a in arr){
                         println("AAA:"+a)
                         splitVersion = a.trim().split('=')
+                        println(splitVersion)
                         if(splitVersion[1] ==~ '([0-9]+).([0-9]+).([0-9]+)'){
                             println("Version found: "+splitVersion[1])
                         }
