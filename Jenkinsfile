@@ -14,9 +14,11 @@ pipeline {
         stage('Test') {
             steps {
                 script{
+                    def output = sh returnStdout: true, script: 'git status --porcelain'
+                    println("Status: ${output}")
                     def project = getProjectById("422")
                     println("Project Name: ${project.name}")
-                    addDocuments(project)
+//                     addDocuments(project)
                 }
             }
         }
