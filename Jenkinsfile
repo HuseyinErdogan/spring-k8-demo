@@ -15,7 +15,12 @@ pipeline {
             steps {
                 script{
                     def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
+                    println(version_value)
                     println(version_value.getClass())
+                    def arr = version_value.split('\n')
+                    for(a in arr){
+                        println("AAA:"+a)
+                    }
 
                     println("TESTTTTTTTTTTT")
                     def version = version_value.split(/=/)[1]
