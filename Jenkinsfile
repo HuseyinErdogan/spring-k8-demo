@@ -13,7 +13,7 @@ pipeline {
 //         }
         stage('Test') {
             steps {
-                script{
+
 
                     def f = new File('README.md')
                     def lines = f.readLines()
@@ -28,7 +28,7 @@ pipeline {
 //                     def project = getProjectById("422")
 //                     println("Project Name: ${project.name}")
 //                     addDocuments(project)
-                }
+
             }
         }
         stage('Deploy') {
