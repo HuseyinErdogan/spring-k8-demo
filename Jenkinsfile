@@ -14,8 +14,8 @@ pipeline {
         stage('Test') {
             steps {
                 script{
-                    def file = new File('README.md')
-                    file.text = file.text.replaceFirst("[\\\r\\\n]+", "\n TEST\n")
+                    def file = readFile "README.md"
+                    file.replaceFirst("[\\\r\\\n]+", "\n TEST\n")
                     sh 'cat README.md'
 //                     def f = new File('README.md')
 //                     def lines = f.readLines()
