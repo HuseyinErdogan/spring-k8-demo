@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script{
                     def text = readFile "README.md"
-                    text.replaceAll("# ", "TEST")
+                    text.replaceAll("# Multi Tenant SPI", "TEST")
                     sh 'cat README.md'
 //                     def f = new File('README.md')
 //                     def lines = f.readLines()
