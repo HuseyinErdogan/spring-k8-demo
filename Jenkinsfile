@@ -23,7 +23,7 @@ pipeline {
                         println("AAA:"+a)
                         splitVersion = a.split(/=/)[1].trim()
                         println(splitVersion)
-                        if(splitVersion ==~ '(\d+)\.(\d+)\.(\d+)*'){
+                        if(splitVersion ==~ "(\d+)\.(\d+)\.(\d+)*"){
                             println("Version found: "+splitVersion)
                         }
                     }
