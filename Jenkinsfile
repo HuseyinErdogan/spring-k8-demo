@@ -14,11 +14,12 @@ pipeline {
         stage('Test') {
             steps {
                 script{
-
-                    def f = new File('README.md')
-                    def lines = f.readLines()
-                    lines = lines.plus(1, "I'm a new line!")
-                    f.text = lines.join('\n')
+                    def text = readFile "README.md"
+                    text.replaceAll("# ", "TEST")
+//                     def f = new File('README.md')
+//                     def lines = f.readLines()
+//                     lines = lines.plus(1, "I'm a new line!")
+//                     f.text = lines.join('\n')
 //                     def output = sh returnStdout: true, script: 'git status --porcelain'
 //                     if(output.isEmpty()){
 //                         println("TESTSETS")
