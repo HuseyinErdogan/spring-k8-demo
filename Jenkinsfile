@@ -13,13 +13,12 @@ pipeline {
 //         }
         stage('Test') {
             steps {
-
+                script{
 
                     def f = new File('README.md')
                     def lines = f.readLines()
                     lines = lines.plus(1, "I'm a new line!")
                     f.text = lines.join('\n')
-                    sh 'cat README.md'
 //                     def output = sh returnStdout: true, script: 'git status --porcelain'
 //                     if(output.isEmpty()){
 //                         println("TESTSETS")
@@ -28,7 +27,7 @@ pipeline {
 //                     def project = getProjectById("422")
 //                     println("Project Name: ${project.name}")
 //                     addDocuments(project)
-
+                }
             }
         }
         stage('Deploy') {
