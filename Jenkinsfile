@@ -19,6 +19,7 @@ pipeline {
                     println(version_value.getClass())
                     def arr = version_value.split('\n')
                     String splitVersion;
+                    println("Size: "+arr.size())
                     for(a in arr){
                         println("AAA:"+a)
                         splitVersion = a.split(/=/)[1].trim()
