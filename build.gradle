@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        rootProject.version = "0.18.0"
+        rootProject.version = "0.1.0"
         project.version = "0.18.0"
         if (project.hasProperty('projVersion')) {
             project.version = project.projVersion
