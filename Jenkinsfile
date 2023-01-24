@@ -23,7 +23,7 @@ pipeline {
                     for(a in arr){
                         println("AAA:"+a)
                         splitVersion = a.split(/=/)[1].trim()
-                        println(splitVersion)
+                        println(splitVersion+" =================== "+ splitVersion.matches(/\d+.*/))
                         if(splitVersion.matches(/\d+.*/)){
                             println("Version found: "+splitVersion)
                         }
