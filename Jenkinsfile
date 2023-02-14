@@ -4,54 +4,54 @@ pipeline {
     agent any
 
     stages {
-//         stage('Checkout') {
-//             steps{
-//                 build job: 'remote-pipeline', parameters: [
-//                     string(name: 'project_id', value: '1389'), string(name: 'version', value: sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim().split(/=/)[1])
-//                 ]
-//             }
-//         }
-        stage('Test') {
-            steps {
-                script{
-                    def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
-                    println(version_value)
-                    println(version_value.getClass())
-                    def arr = version_value.split('\n')
-                    String splitVersion;
-                    println("Size: "+arr.size())
-                    for(a in arr){
-                        println("AAA:"+a)
-                        splitVersion = a.split(/=/)[1].trim().replaceAll("\"","")
-                        println(splitVersion+" =================== "+ splitVersion.matches(/\d+.*/))
-                        if(splitVersion.matches(/\d+.*/)){
-                            println("Version found: "+splitVersion)
-                        }
-                    }
-
-                    println("TESTTTTTTTTTTT")
-                    def version = version_value.split(/=/)[1]
-                    sh "echo final version: $version"
-//                     def file = readFile "README.md"
-//                     file = file.replaceFirst("[\\\r\\\n]+", "\nTEST\n")
-//                     println("WRITE README")
-//                     writeFile file: "README.md", text: file
-//                     sh 'cat README.md'
-//                     def f = new File('README.md')
-//                     def lines = f.readLines()
-//                     lines = lines.plus(1, "I'm a new line!")
-//                     f.text = lines.join('\n')
-//                     def output = sh returnStdout: true, script: 'git status --porcelain'
-//                     if(output.isEmpty()){
-//                         println("TESTSETS")
-//                     }
-//                     println("Status: ${output}")
-//                     def project = getProjectById("422")
-//                     println("Project Name: ${project.name}")
-//                     addDocuments(project)
-                }
+        stage('Checkout') {
+            steps{
+                build job: 'remote-pipeline', parameters: [
+                    string(name: 'project_id', value: '1389'), booleanParam(name: 'is_remote_trigger', value: false))
+                ]
             }
         }
+//         stage('Test') {
+//             steps {
+//                 script{
+//                     def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
+//                     println(version_value)
+//                     println(version_value.getClass())
+//                     def arr = version_value.split('\n')
+//                     String splitVersion;
+//                     println("Size: "+arr.size())
+//                     for(a in arr){
+//                         println("AAA:"+a)
+//                         splitVersion = a.split(/=/)[1].trim().replaceAll("\"","")
+//                         println(splitVersion+" =================== "+ splitVersion.matches(/\d+\.\d+\.\d+.*/)
+//                         if(splitVersion.matches(/\d+.*/)){
+//                             println("Version found: "+splitVersion)
+//                         }
+//                     }
+//
+//                     println("TESTTTTTTTTTTT")
+//                     def version = version_value.split(/=/)[1]
+//                     sh "echo final version: $version"
+// //                     def file = readFile "README.md"
+// //                     file = file.replaceFirst("[\\\r\\\n]+", "\nTEST\n")
+// //                     println("WRITE README")
+// //                     writeFile file: "README.md", text: file
+// //                     sh 'cat README.md'
+// //                     def f = new File('README.md')
+// //                     def lines = f.readLines()
+// //                     lines = lines.plus(1, "I'm a new line!")
+// //                     f.text = lines.join('\n')
+// //                     def output = sh returnStdout: true, script: 'git status --porcelain'
+// //                     if(output.isEmpty()){
+// //                         println("TESTSETS")
+// //                     }
+// //                     println("Status: ${output}")
+// //                     def project = getProjectById("422")
+// //                     println("Project Name: ${project.name}")
+// //                     addDocuments(project)
+//                 }
+//             }
+//         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
